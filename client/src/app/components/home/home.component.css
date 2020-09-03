@@ -1,0 +1,28 @@
+
+.home{
+    border: 2px solid black;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.home-container{
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+
+}
+
+
+
+.job-post-container{
+    height: 400px;
+    border: 1px solid rgb(238, 1, 1)
+}
+
+.job-box{
+    height: 100px;
+    width: 100px;
+
+    border: 1px solid black;
+
+}

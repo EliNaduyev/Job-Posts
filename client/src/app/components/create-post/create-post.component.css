@@ -1,0 +1,31 @@
+
+.post-creation{
+    height: 300px;
+    border: 1px solid black;
+}
+
+.post-creation h1{
+    margin-bottom: 10px;
+}
+
+.post-creation input{
+    margin-bottom: 10px;
+}
+
+.create-post-btn{
+    height: 30px;
+    border-radius: 10px;
+    width: 200px;
+    border:none;
+    color: white;
+    background-color: rgb(39, 39, 39);
+    margin-top: 10px;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.create-post-btn:hover{
+
+    background-color: rgb(65, 65, 65);
+
+}
