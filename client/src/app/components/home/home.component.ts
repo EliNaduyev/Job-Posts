@@ -8,15 +8,19 @@ import { MainService } from '../../services/main.service'
 })
 
 export class HomeComponent implements OnInit {
-  test:object 
-  arr:object[]
-
+  jobPostArr:object[]
+  counter:number = 4
   constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
 
-    this.arr = this.mainServices.getJobPosts()
-    console.log(this.arr)
+    this.jobPostArr = this.mainServices.getJobPosts()
+    
+    this.mainServices.addPost({
+      id:3,
+      title:'job 3',
+      desc:'sdf fsdfsdfs asdas testtt'
+    })
 
   //   let userTestStatus: { id: number, name: string }[] = [
   //     { "id": 0, "name": "Available" },
@@ -26,5 +30,18 @@ export class HomeComponent implements OnInit {
 
   //   console.log(userTestStatus)
   }
+  createJobPost(data:any){
+    // console.log(data.body.split(/((?:\w+ ){5})/g).filter(Boolean).join("\n"))
+    // console.log('after',data.body)
+    this.mainServices.addPost({
+      id:this.counter,
+      title:data.title,
+      desc:data.body
+    })
+    this.counter++
+  }
 
+  contactJobPost(data:object){
+    console.log(data)
+  }
 }

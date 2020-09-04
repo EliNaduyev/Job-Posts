@@ -1,28 +1,97 @@
 
 .home{
-    border: 2px solid black;
-    height: 100vh;
-    padding-top: 60px;
+    border: 3px solid black;
 }
 
 .home-container{
     width: 80%;
     margin: 0 auto;
     border: 1px solid black;
+}
 
+.home-header{
+    padding:30px;
+    text-align: center;
+    background-color: rgb(49,120,198);
+    color: white;
+}
+
+.home-top{
+    min-height: 50vh;
+}
+
+.home-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid black;
+}
+
+.home-grid-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(14, 146, 65);
+ }
+ 
+ .home-grid-img img{
+     height: 300px;
+     width: 400px;
+ }
+
+.home-grid-text{
+    padding:15px;
+    border: 1px solid black;
+    /* height: 50vh; */
+
+} 
+
+.home-grid-text h1{
+    margin: 15px 0px;
+    color: rgb(43, 174, 226);
+}
+
+.home-grid-text p {
+    font-size:22px;
+    line-height: 30px;
+    border: 1px solid black;
+    width: 70%;
+}
+
+.home-grid-text button{
+    margin-top: 20px;
+    height: 30px;
+    width: 30%;
+    border: 1px solid rgb(11, 52, 187);
+    background-color: transparent;
+    color: rgb(11, 52, 187);
 }
 
 
 
 .job-post-container{
-    height: 400px;
-    border: 1px solid rgb(238, 1, 1)
+    height: 600px;
+    padding: 10px;
+    /* background-color: rgb(245, 245, 245); */
+    border: 1px solid rgb(238, 1, 1);
+
+    /* background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
-.job-box{
-    height: 100px;
-    width: 100px;
+.job-post-container h1{
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgb(44, 45, 46);
+  
+}
 
-    border: 1px solid black;
+.job-post-container-flex{
+    display: flex;
+    flex-wrap: wrap;
 
 }
+
+
+

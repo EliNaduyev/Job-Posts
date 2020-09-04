@@ -1,7 +1,7 @@
 
 .post-creation{
-    height: 300px;
     border: 1px solid black;
+    padding:20px 30px;
 }
 
 .post-creation h1{
@@ -28,4 +28,23 @@
 
     background-color: rgb(65, 65, 65);
 
+}
+
+.inputs{
+    height: 28px;
+    width: 240px;
+    padding-left: 5px;
+}
+
+#text-area{
+    padding:5px;
+    resize: none;
+}
+
+.char-left-to-max span{
+    font-size:20px;
+}
+
+#remaining-char{
+    font-weight: bold;
 }

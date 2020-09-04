@@ -1,0 +1,19 @@
+
+
+<div class="job-box" [ngStyle]="{backgroundImage:'url(../../assets/note.jpg)'}" >
+
+    <div class="nail-icon">
+        <!-- <i class="fa fa-circle" aria-hidden="true"></i> -->
+        <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+    </div>
+    
+    <div class="container">
+        <h2>{{jobPost.title}}</h2>
+        <p>{{jobPost.desc}}</p>
+    </div>
+    
+    <div class="btn-container">
+        <button (click)="onContact()" class="contact-btn">Contact</button>
+    </div>
+
+</div>

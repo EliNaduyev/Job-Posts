@@ -1,30 +1,79 @@
 
-
-<div class="home">
+<!-- [ngStyle]="{backgroundImage:'url(../../assets/background.jpg)'}" -->
+<div class="home" >
 
     <div class="home-container">
-        <h1>Home Page</h1>
+        <h1 class="home-header">Jobs</h1>
 
-        
-        <app-create-post></app-create-post>
+        <!-- <div class="home-top-flex">
+            <div class="home-top-flex-info">
+                <h1>Create Your Own Posts!</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur 
+                    adipisicing elit. Earum sunt adipisci dolore 
+                    repudiandae, ab eos tenetur fuga cum, vel soluta
+                     velit enim eaque nisi totam, nihil rem voluptas
+                      animi officiis.
+                </p>
+
+                <button class="register-btn">Register</button>
+         
+            </div>
+            <div class="home-top-flex-img">
+                <img src="../../assets/a.jpg" alt="">
+            </div>
+        </div> -->
+    
+        <div class="home-grid home-top">
+            <div class="home-grid-text">
+                <h1>Job seekers board</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur 
+                    adipisicing elit. Earum sunt adipisci dolore 
+                    repudiandae, ab eos tenetur fuga cum, vel soluta
+                     velit enim eaque nisi totam, nihil rem voluptas
+                      animi officiis.
+                </p>
+    
+                <button>Check Jobs</button>
+         
+            </div>
+            <div class="home-grid-img">
+                <img src="../../assets/b.jpg" alt="">
+            </div>
+        </div>
+        <div class="home-grid">
+            <div class="home-grid-posts">
+                <app-create-post (createJobPost)="createJobPost($event)"></app-create-post>
+
+            </div>
+            <div class="home-grid-text">
+                <h1>Create Your Own Posts!</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur 
+                    adipisicing elit. Earum sunt adipisci dolore 
+                    repudiandae, ab eos tenetur fuga cum, vel soluta
+                     velit enim eaque nisi totam, nihil rem voluptas
+                      animi officiis.
+                </p>
+    
+         
+            </div>
         
 
-        <div class="job-post-container">
+        </div>
+
+        <!-- [ngStyle]="{backgroundImage:'url(../../assets/posts-bg.jpg)'}" -->
+        <div class="job-post-container" 
+        >
             <h1>job container</h1>
+            <div class="job-post-container-flex">
+                <app-job-post *ngFor="let post of jobPostArr" [jobPost]="post"
+                (contactJobPost)="contactJobPost($event)">
 
-            <div *ngFor="let x of arr">
-                {{x.title}}
-
+                </app-job-post>
             </div>
-            <div class='job-box'>
-                <h2>job 1</h2>
-            </div>
-            <div class='job-box'>
-                <h2>job 2</h2>
-            </div>
-            <div class='job-box'>
-                <h2>job 3</h2>
-            </div>
+          
         </div>
 
     </div>

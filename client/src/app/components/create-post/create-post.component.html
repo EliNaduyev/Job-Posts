@@ -3,12 +3,30 @@
 <div class="post-creation">
     <h1>Job Post Creation</h1>
 
-    <input type="text" placeholder="Insert Title...">
+    <input type="text" placeholder="Insert Title..."
+    [(ngModel)]="title" name="title" class="inputs">
+    <!-- <div>
+        <select name="" id="">
+            <option value="">0  -  2</option>
+            <option value="">2  -  5</option>
+            <option value="">5  -  8</option>
+            <option value="">10 - 15</option>
+            <option value="">15+</option>
+
+        </select>
+    </div> -->
     <div>
-        <textarea id="" cols="30" rows="10"
-        placeholder="Tell about your self..."></textarea>
+        <textarea id="text-area" cols="30" rows="10"
+        placeholder="Tell about your self..." maxlength="70"
+        [(ngModel)]="body" (input)="onChange()">
+        </textarea>
+        <div class="char-left-to-max">
+            <span>characters remaining: </span>
+            <span id='remaining-char'>20</span>
+        </div>
+
     </div>
     <div>
-        <button class="create-post-btn">Create</button>
+        <button (click)="onCreate()" class="create-post-btn">Create</button>
     </div>
 </div>
