@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../../services/main.service'
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+  test:object 
+  arr:object[]
 
-  constructor() { }
+  constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
+
+    this.arr = this.mainServices.getJobPosts()
+    console.log(this.arr)
+
+  //   let userTestStatus: { id: number, name: string }[] = [
+  //     { "id": 0, "name": "Available" },
+  //     { "id": 1, "name": "Ready" },
+  //     { "id": 2, "name": "Started" }
+  // ];
+
+  //   console.log(userTestStatus)
   }
 
 }
