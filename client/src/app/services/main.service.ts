@@ -16,7 +16,8 @@ export class MainService {
         desc:'Looking for new postion, i have 2 years of experience, '+
         'strong comunication skills and more!',
         email:'adi@gmail.com',
-        tel:'054676234'
+        tel:'054676234',
+        date:'12/8/2018'
       },
       {
         id:2,
@@ -24,7 +25,8 @@ export class MainService {
         education:"PhD Degree",
         desc:'sdf fsdfsdfs asdas',
         email:'tomer@gmail.com',
-        tel:'054894234'
+        tel:'054894234',
+        date:'15/6/2020'
       }
     ]
     return this.arr

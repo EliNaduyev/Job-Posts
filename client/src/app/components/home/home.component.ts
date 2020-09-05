@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
       desc:'Looking for Full-Stack postion, i have 2 years of experience, '+
       'strong comunication skills and more!',
       email:'eli@gmail.com',
-      tel:'0546336234'
+      tel:'0546336234',
+      date:'6/3/1993'
     })
 
   //   let userTestStatus: { id: number, name: string }[] = [
@@ -44,7 +45,8 @@ export class HomeComponent implements OnInit {
       desc:data.body,
       tel:data.tel,
       email:data.email,
-      education:data.education
+      education:data.education,
+      date:data.pubDate
     })
     this.counter++
   }
