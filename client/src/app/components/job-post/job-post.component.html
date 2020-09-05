@@ -1,19 +1,35 @@
 
-
-<div class="job-box" [ngStyle]="{backgroundImage:'url(../../assets/note.jpg)'}" >
+ <!-- [ngStyle]="{backgroundImage:'url(../../assets/note.jpg)'}" -->
+<div class="job-box">
 
     <div class="nail-icon">
         <!-- <i class="fa fa-circle" aria-hidden="true"></i> -->
         <i class="fa fa-thumb-tack" aria-hidden="true"></i>
     </div>
-    
-    <div class="container">
+    <div class="job-box-header">
         <h2>{{jobPost.title}}</h2>
-        <p>{{jobPost.desc}}</p>
     </div>
-    
-    <div class="btn-container">
-        <button (click)="onContact()" class="contact-btn">Contact</button>
+    <div class="container">
+        
+        <h4>
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            {{jobPost.education}}
+        </h4>
+        <p>
+            {{jobPost.desc}}
+        </p>
+        <div class="phone-num">
+            <b>Phone: </b>
+            <a  href="tel:{{jobPost.tel}}">{{ jobPost.tel }}</a>
+        </div>
+       
     </div>
+    <a href="mailto:{{jobPost.email}}">
+        <div class="btn-container">
+            <button class="contact-btn">Send Email</button>
+            <!-- <button (click)="onContact()" class="contact-btn">Contact</button> -->
+        </div>
+    </a>
+
 
 </div>

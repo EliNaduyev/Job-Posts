@@ -1,7 +1,16 @@
 
 .post-creation{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding:20px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    background-color: rgb(246, 246, 246);
 }
 
 .post-creation h1{
@@ -45,6 +54,23 @@
     font-size:20px;
 }
 
-#remaining-char{
-    font-weight: bold;
+
+.dropdown-input{
+    margin-bottom: 10px;
 }
+
+.dropdown-input option{
+    padding: 5px;
+}
+
+
+@media only screen and (max-width: 640px) {
+    
+    .post-creation{
+        padding:40px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

@@ -3,7 +3,10 @@
 <div class="home" >
 
     <div class="home-container">
-        <h1 class="home-header">Jobs</h1>
+        <h1 class="home-header">
+            Jobs
+
+        </h1>
 
         <!-- <div class="home-top-flex">
             <div class="home-top-flex-info">
@@ -26,7 +29,10 @@
     
         <div class="home-grid home-top">
             <div class="home-grid-text">
-                <h1>Job seekers board</h1>
+                <h1 class="home-grid-text-header">
+                    <span>Job seekers board</span> 
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </h1>
                 <p>
                     Lorem ipsum, dolor sit amet consectetur 
                     adipisicing elit. Earum sunt adipisci dolore 
@@ -34,21 +40,28 @@
                      velit enim eaque nisi totam, nihil rem voluptas
                       animi officiis.
                 </p>
-    
-                <button>Check Jobs</button>
+                <a href="#jobs">
+                    <button>
+                        <span>Check Jobs</span> 
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </button>
+                </a>
+          
          
             </div>
             <div class="home-grid-img">
-                <img src="../../assets/b.jpg" alt="">
+                <img src="../../assets/b.png" alt="">
             </div>
         </div>
-        <div class="home-grid">
+        <div class="home-grid home-bottom">
             <div class="home-grid-posts">
                 <app-create-post (createJobPost)="createJobPost($event)"></app-create-post>
 
             </div>
             <div class="home-grid-text">
-                <h1>Create Your Own Posts!</h1>
+                <h1 class="home-grid-text-header">
+                    <span>Create Your Own Posts! <i class="fa fa-address-card" aria-hidden="true"></i></span> 
+                </h1>
                 <p>
                     Lorem ipsum, dolor sit amet consectetur 
                     adipisicing elit. Earum sunt adipisci dolore 
@@ -62,11 +75,15 @@
         
 
         </div>
-
         <!-- [ngStyle]="{backgroundImage:'url(../../assets/posts-bg.jpg)'}" -->
         <div class="job-post-container" 
+        [ngStyle]="{backgroundImage:'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../../assets/posts-bg.jpg)'}"
         >
-            <h1>job container</h1>
+            <div class="header-background">
+                <h1 id='jobs'>Jobs Board</h1>
+                <div class="job-post-header-underline"></div>
+            </div>
+      
             <div class="job-post-container-flex">
                 <app-job-post *ngFor="let post of jobPostArr" [jobPost]="post"
                 (contactJobPost)="contactJobPost($event)">

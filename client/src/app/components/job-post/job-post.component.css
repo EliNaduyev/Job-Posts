@@ -1,37 +1,52 @@
 
 
 .job-box{
-    width: 150px;
-    /* height: 200px; */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
-    margin-right: 50px;
-    background-attachment:fixed;
+    width: 300px;
+    min-height: 220px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+    margin: 10px 20px 20px 20px;
+    /* margin-bottom: 20px; */
+    /* margin-right: 50px; */
+    /* background-attachment:fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: rgb(244,238,128);
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 10px;
 }
 
+
+
 .container{
     /* border: 1px solid black; */
+    padding: 0px 0px 0px 15px;
 }
 
-.container h2{
+.job-box-header{
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    /* padding: 0px 10px; */
+}
+
+.container h4{
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .container p{
     font-size:19px;
     line-height: 25px;
     overflow: hidden;
+
+    /* border: 1px solid black; */
+    /* padding: 0px 10px; */
+
 }
 
-.job-box i{
+.nail-icon i{
     color: rgb(221, 36, 36);
     transform: rotate(40deg);
 }
@@ -49,8 +64,32 @@
 }
 
 .contact-btn{
-    height: 30px;
+    height: 35px;
     width: 90%;
     border: 1px solid black;
     background-color: transparent;
+    transition: ease-in-out all 0.3s;
+    cursor: pointer;
 }
+
+.contact-btn:hover{
+    /* background-color: rgb(255, 255, 255); */
+    border: 1px solid rgb(20, 142, 212);
+    color: rgb(20, 142, 212);
+
+}
+
+.phone-num{
+    padding:6px 0px;
+    /* border: 2px solid rgb(42, 149, 211); */
+
+}
+
+
+@media only screen and (max-width: 455px) {
+
+    .job-box{
+        margin-right: 0;
+    }
+}
+

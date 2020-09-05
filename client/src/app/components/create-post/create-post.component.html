@@ -1,31 +1,41 @@
 
 
 <div class="post-creation">
-    <h1>Job Post Creation</h1>
+    <h1>
+        Job Post Creation
 
-    <input type="text" placeholder="Insert Title..."
+    </h1>
+    <input type="text" placeholder="Insert title..."
     [(ngModel)]="title" name="title" class="inputs">
-    <!-- <div>
-        <select name="" id="">
-            <option value="">0  -  2</option>
-            <option value="">2  -  5</option>
-            <option value="">5  -  8</option>
-            <option value="">10 - 15</option>
-            <option value="">15+</option>
-
+    <div>
+        <input type="number" placeholder="Insert phone nubmer..." class="inputs"
+        [(ngModel)]="phone">
+    </div>
+    <div>
+        <input type="email" placeholder="Insert email..." class="inputs"
+        [(ngModel)]="email">
+    </div>
+    <div class="dropdown-input">
+        <select class="inputs" name="" id="" [(ngModel)]="education">
+            <option value="Education" disabled selected hidden>Education</option>
+            <option value="High School">High School</option>
+            <option value="Bachelor Degree">Bachelor Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="PhD Degree">PhD Degree</option>
         </select>
-    </div> -->
+    </div>
     <div>
         <textarea id="text-area" cols="30" rows="10"
-        placeholder="Tell about your self..." maxlength="70"
+        placeholder="Tell about your self..." maxlength="100"
         [(ngModel)]="body" (input)="onChange()">
         </textarea>
         <div class="char-left-to-max">
             <span>characters remaining: </span>
-            <span id='remaining-char'>20</span>
+            <span id='remaining-char'>100</span>
         </div>
 
     </div>
+    
     <div>
         <button (click)="onCreate()" class="create-post-btn">Create</button>
     </div>

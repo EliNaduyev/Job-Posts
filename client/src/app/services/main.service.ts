@@ -11,13 +11,20 @@ export class MainService {
      this.arr = [
       {
         id:1,
-        title:'job 1',
-        desc:'asda sda asdas'
+        title:'Human Resources',
+        education:"Master's Degree",
+        desc:'Looking for new postion, i have 2 years of experience, '+
+        'strong comunication skills and more!',
+        email:'adi@gmail.com',
+        tel:'054676234'
       },
       {
         id:2,
-        title:'job 2',
-        desc:'sdf fsdfsdfs asdas'
+        title:'Machine Learning',
+        education:"PhD Degree",
+        desc:'sdf fsdfsdfs asdas',
+        email:'tomer@gmail.com',
+        tel:'054894234'
       }
     ]
     return this.arr

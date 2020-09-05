@@ -1,12 +1,16 @@
 
 .home{
-    border: 3px solid black;
+    /* border: 3px solid black; */
+    background-color: rgb(246, 246, 246);
 }
 
 .home-container{
     width: 80%;
     margin: 0 auto;
-    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+
+    /* border: 1px solid black; */
 }
 
 .home-header{
@@ -23,74 +27,259 @@
 .home-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .home-grid-img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgb(14, 146, 65);
+    /* border: 2px solid rgb(14, 146, 65); */
  }
  
  .home-grid-img img{
-     height: 300px;
+     height: 250px;
      width: 400px;
+     /* border: 1px solid black; */
  }
 
 .home-grid-text{
-    padding:15px;
-    border: 1px solid black;
+    padding:15px 15px 15px 25px;
+    /* border: 1px solid black; */
     /* height: 50vh; */
 
 } 
 
 .home-grid-text h1{
-    margin: 15px 0px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+
     color: rgb(43, 174, 226);
 }
 
 .home-grid-text p {
     font-size:22px;
     line-height: 30px;
-    border: 1px solid black;
-    width: 70%;
+    /* border: 1px solid black; */
+    width: 90%;
 }
 
 .home-grid-text button{
     margin-top: 20px;
-    height: 30px;
+    height: 35px;
     width: 30%;
-    border: 1px solid rgb(11, 52, 187);
+    border: 2px solid rgb(9, 155, 212);
     background-color: transparent;
-    color: rgb(11, 52, 187);
+    color: rgb(9, 155, 212);
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    font-weight: bold;
+}
+
+.home-grid-text button:hover{
+   
+    border: 2px solid rgb(9, 155, 212);
+    background-color: rgb(9, 155, 212);
+    color: rgb(238, 235, 235);
+
+}
+
+.home-grid-text button i{
+    margin-left: 10px;
+}
+
+.home-grid-text i{
+    margin-left: 10px;
+}
+
+.home-grid-text-header{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.home-grid-text-header i{
+    font-size:30px;
+
 }
 
 
 
 .job-post-container{
-    height: 600px;
-    padding: 10px;
-    /* background-color: rgb(245, 245, 245); */
-    border: 1px solid rgb(238, 1, 1);
+    min-height: 600px;
+    padding: 45px 15px 15px 15px;
+    /* background-color: rgb(134, 113, 113); */
+    /* border: 1px solid rgb(238, 1, 1); */
 
-    /* background-attachment: fixed;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: cover;
+}
+
+.header-background{
+    background-color: rgb(231, 228, 228,0.9);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 30px;
+    width: 340px;
+    
 }
 
 .job-post-container h1{
-    margin-bottom: 30px;
+    /* margin-bottom: 50px; */
+    /* padding-top: 20px; */
     text-align: center;
-    color: rgb(44, 45, 46);
-  
+    color: #000000;
+    font-size:35px;
+}
+
+.job-post-header-underline{
+    border: 3px solid #000000;
+    width: 130px;
+    border-radius: 15px;
+    margin: 0 auto;
+    /* margin-bottom: 50px;  */
 }
 
 .job-post-container-flex{
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
+    /* border: 1px solid black; */
+    justify-content: space-around;
+}
 
+
+/* .home-top{
+    min-height: 50vh;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.bottom-part{
+    background-color: rgb(246, 246, 246);
+
+} */
+
+.home-bottom{
+    padding-bottom: 50px;
+}
+
+
+
+.home-grid-posts{
+    /* border: 1px solid blue; */
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 1500px) {
+
+    .home-grid-text{
+        padding:45px 15px 15px 35px;
+    } 
+    
+    .home-grid-text h1{
+        font-size:40px;
+        padding: 20px 0px 5px 0px;
+    }
+    
+    .home-grid-text p {
+        font-size:25px;
+        line-height: 35px;
+    }
+    
+    .home-grid-text button{
+        margin-top: 25px;
+        height: 40px;
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+
+    .home-container{
+        width: 100%;
+      
+    }
+
+    .home-grid-text{
+ 
+        padding-left: 30px;
+    }
+
+    .job-post-container{
+        padding: 15px 30px;
+ 
+    }
+
+    .home-grid-text p {
+ 
+        width: 100%;
+    }
+
+    .home-grid-img img{
+        height: 200px;
+        width: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+
+    .home-grid{
+        grid-template-columns:1fr;
+        /* border: 2px solid yellow; */
+        /* padding: 20px 0px; */
+    }
+
+    .home-grid-text{
+        padding-top: 20px;
+        padding-bottom: 40px;
+
+        padding-left: 30px;
+    }
+
+
+    .job-post-container{
+        height: auto;
+        padding: 15px;
+  
+    }
+
+    .home-grid-posts{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .home-grid-img{
+        /* display: none; */
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .job-post-container{
+        height: auto;
+        padding: 15px;
+    }
+
+    .job-post-container-flex{
+        padding: 15px 0px;
+
+        border: 2px solid white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 
