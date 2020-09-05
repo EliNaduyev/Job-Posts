@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
       id:3,
       title:'Software Engineer',
       education:'Bachelor Degree',
-      desc:'Looking for Full-Stack postion, i have 2 years of experience, '+
-      'strong comunication skills and more!',
+      desc:'Looking for Full-Stack postion, Has two years of experience, '+
+      'strong communication skills and more!',
       email:'eli@gmail.com',
       tel:'0546336234',
       date:'6/3/1993'

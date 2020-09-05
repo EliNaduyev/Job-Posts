@@ -7,7 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { JobPostComponent } from './components/job-post/job-post.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms'
     HomeComponent,
     NavbarComponent,
     CreatePostComponent,
-    JobPostComponent
+    JobPostComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
