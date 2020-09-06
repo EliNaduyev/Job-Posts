@@ -14,29 +14,29 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.jobPostArr = this.mainServices.getJobPosts()
-    
-    this.mainServices.addPost({
-      id:3,
-      title:'Software Engineer',
-      education:'Bachelor Degree',
-      desc:'Looking for Full-Stack postion, Has two years of experience, '+
-      'strong communication skills and more!',
-      email:'eli@gmail.com',
-      tel:'0546336234',
-      date:'6/3/1993'
+    this.mainServices.getJobPosts().subscribe(response =>{
+
+      console.log('response: ',response)
+      this.jobPostArr = response
+
     })
+    
+    // this.mainServices.addPost({
+    //   id:3,
+    //   title:'Software Engineer',
+    //   education:'Bachelor Degree',
+    //   desc:'Looking for Full-Stack postion, has two years of experience, '+
+    //   'strong communication skills and more!',
+    //   email:'jonsnow@gmail.com',
+    //   tel:'0546336234',
+    //   date:'6/3/2020'
+    // })
 
-  //   let userTestStatus: { id: number, name: string }[] = [
-  //     { "id": 0, "name": "Available" },
-  //     { "id": 1, "name": "Ready" },
-  //     { "id": 2, "name": "Started" }
-  // ];
 
-  //   console.log(userTestStatus)
   }
+
   createJobPost(data:any){
-    console.log(data)
+    // console.log(data)
     // console.log(data.body.split(/((?:\w+ ){5})/g).filter(Boolean).join("\n"))
     // console.log('after',data.body)
     this.mainServices.addPost({
@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
       email:data.email,
       education:data.education,
       date:data.pubDate
+    }).subscribe(response =>{     //without subscribe the request will not work!
+      console.log('response: ',response)
     })
     this.counter++
   }
@@ -54,4 +56,15 @@ export class HomeComponent implements OnInit {
   contactJobPost(data:object){
     console.log(data)
   }
+
+  makeHTTP(){
+    console.log('btn was clicked')
+    // if i dont use subscribe the request will not be sent
+    this.mainServices.makeSimpleHttp().subscribe(test =>{  
+      console.log('test: ',test)
+    })
+  }
+
+
+
 }

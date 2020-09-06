@@ -1,6 +1,9 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { TimeObject } from '../../models/timeObject'
 import { stringify } from '@angular/compiler/src/util';
+
+
+
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
