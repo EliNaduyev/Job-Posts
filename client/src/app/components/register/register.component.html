@@ -1,0 +1,26 @@
+
+
+<div class="container">
+    
+    <div class="center-container">
+        <div class="logo">
+            <img src="../../assets/top-header.png" alt="">
+        </div>
+        <h1>Hello New User</h1>
+        <div class="inputs-container">
+
+            <input class="input" type="text" placeholder="Username"
+            [(ngModel)]="userName">
+            <input class="input" type="password" placeholder="Password"
+            [(ngModel)]="password">
+            <input class="input" type="password" placeholder="Confirm password"
+            [(ngModel)]="confirmPassword">
+            <input class="input" type="email" placeholder="Email"
+            [(ngModel)]="email">
+            <button (click)="onSignUp()" class="input btn">Sign Up</button>
+            <p>Have an account?  <a routerLink="">Sign In</a></p>
+        </div>
+    </div>
+</div>
+
+

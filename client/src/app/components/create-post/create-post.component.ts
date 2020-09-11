@@ -20,7 +20,6 @@ export class CreatePostComponent implements OnInit {
   education:string = 'Education'
 
   // timeObj: Partial <TimeObject> = {};
-  
   pubDate:string
 
   constructor() { }
@@ -45,20 +44,30 @@ export class CreatePostComponent implements OnInit {
     onCreate(){
     // if(this.title && this.body && this.phone && this.email && this.education !== 'Education')
     this.pubDate = this.makeDate()
-
-    if(this.title && this.body && this.education !== 'Education')
-      this.createJobPost.emit({
-        title:this.title,
-        body:this.body,
-        tel:this.phone,
-        email:this.email,
-        education:this.education,
-        pubDate:this.pubDate
-      })
-    else{
-      alert('Fill all the fields')
+    console.log(typeof this.phone)
+    if(this.phone){
+      if(this.phone.toString().length >= 9 && this.phone.toString().length <= 10){
+        if(this.title && this.body && this.education !== 'Education' && this.email){
+          this.createJobPost.emit({
+            title:this.title,
+            body:this.body,
+            tel:this.phone,
+            email:this.email,
+            education:this.education,
+            pubDate:this.pubDate
+          })
+        }
+        else{
+          alert('Fill all the fields')
+        }
+      }
+      else{
+        alert('Phone must contain 9 or 10 digits')
+      }
     }
+    else{
+      alert('Fill phone field')
+    }
+
   }
-
-
 }

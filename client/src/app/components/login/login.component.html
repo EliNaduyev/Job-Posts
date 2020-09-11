@@ -1,0 +1,19 @@
+<div class="container">
+    
+    <div class="center-container">
+        <div class="logo">
+            <img src="../../assets/top-header.png" alt="">
+        </div>
+        <h1>Welcome Back!</h1>
+        <div class="inputs-container">
+
+            <input class="input" type="text" placeholder="Username"
+            [(ngModel)]="userName">
+            <input class="input" type="password" placeholder="Password"
+            [(ngModel)]="password">
+            <button (click)="onLogin()" class="input btn">Sign In</button>
+            <p>Dont have an account?  <a routerLink="/register">Sign Up</a></p>
+
+        </div>
+    </div>
+</div>

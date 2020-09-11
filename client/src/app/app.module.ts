@@ -9,7 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { JobPostComponent } from './components/job-post/job-post.component';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './components/footer/footer.component'
     NavbarComponent,
     CreatePostComponent,
     JobPostComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

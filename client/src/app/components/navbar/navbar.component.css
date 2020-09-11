@@ -1,11 +1,23 @@
 
 .navbar{
-    height: 60px;
-    background-color: gray;
+    height: 70px;
+    background-color: rgb(49,120,198);
     width: 100%;
     color: white;
     display: flex;
     align-items: center;
     position: fixed;
     
+}
+
+.navbar img{
+    height: 100px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.navbar p{
+    font-size: 20px;
+    margin-left: 40px;
+
 }
