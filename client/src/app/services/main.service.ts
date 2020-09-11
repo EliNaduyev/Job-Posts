@@ -13,12 +13,17 @@ export class MainService {
   constructor(private http:HttpClient) { }
 
   // ----------- users function -----------
-  addNewUser(newUser:object):Observable<object>{
-    return this.http.post<object>(this.END_POINT+'/adduser',newUser)
+  addNewUser(newUser:object):Observable<any>{
+    return this.http.post<any>(this.END_POINT+'/adduser',newUser)
   }
 
   getUser(userData:object):Observable<any>{
     return this.http.post<any>(this.END_POINT+`/getuser`,userData)
+  }
+
+  checkUser(username:string):Observable<any>{
+    // in http request the data is MUST be JSON object
+    return this.http.post<any>(this.END_POINT+`/checkuser`,{username})  
   }
 
   // ----------- post function -----------

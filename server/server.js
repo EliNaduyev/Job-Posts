@@ -54,11 +54,30 @@ app.post('/adduser', (req, res) =>{
     db.query(sql, [id, userName, password, email],(err, result) =>{
         if(err){
             console.log(err)
-            res.json({msg:err})
+            return res.json({err:err})
         }
         else{            
             console.log('result: ',result)
-            res.json({msg:'hey this from the server user added!'})
+            return res.json({msg:'user added!'})
+        }
+    })
+})
+
+
+app.post('/checkuser', (req, res) =>{
+    console.log('check user request was made')
+    console.log('body of msg is: ',req.body)
+    const { username } = req.body
+
+    const sql = 'SELECT * FROM users WHERE user_name=?;'
+
+
+    db.query(sql, [ username ],(err, result) =>{
+        if(err) return res.json({err:err})
+        else{  
+            console.log('result: ',result)
+            if(result[0]) return res.json({msg:true})
+            else return res.json({msg:false})    
         }
     })
 })
@@ -72,13 +91,11 @@ app.post('/getuser', (req, res) =>{
 
     db.query(sql, [username],(err, result) =>{
         if(err){
-
             console.log(err)
             return res.json({msg:err})
         }
         else{            
             console.log('result is: ',result)
-        
             if(result[0]){
                 console.log('user name exist!')
                 const { user_pass } = result[0]

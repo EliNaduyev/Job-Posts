@@ -11,7 +11,8 @@ import { JobPostComponent } from './components/job-post/job-post.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './components/login/login.component'
     JobPostComponent,
     FooterComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorMsgComponent
   ],
   imports: [
     BrowserModule,

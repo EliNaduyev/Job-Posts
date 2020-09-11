@@ -8,7 +8,7 @@
         </div>
         <h1>Hello New User</h1>
         <div class="inputs-container">
-
+            <app-error-msg *ngIf="error"[errorText]=error></app-error-msg>
             <input class="input" type="text" placeholder="Username"
             [(ngModel)]="userName">
             <input class="input" type="password" placeholder="Password"

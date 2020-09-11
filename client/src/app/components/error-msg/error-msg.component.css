@@ -1,0 +1,19 @@
+
+.error-container{
+    /* border: 1px solid black; */
+    width:100%;
+    background-color: rgb(231, 82, 82);
+    /* margin: 25px auto; */
+ 
+}
+
+.error-container p{
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 45px;
+    /* padding: 10px; */
+}
+

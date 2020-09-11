@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../../services/main.service'
+import { getCookie, deleteCookie } from '../../cookies'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +11,23 @@ import { MainService } from '../../services/main.service'
 
 export class HomeComponent implements OnInit {
   jobPostArr:object[]
-  constructor(private mainServices:MainService) { }
+  username:string
+  constructor(private mainServices:MainService, private router:Router) { }
 
   ngOnInit(): void {
-
+    this.username = getCookie('username')
     this.mainServices.getJobPosts().subscribe(response =>{
 
       console.log('response: ',response)
       this.jobPostArr = response
 
     })
+  }
+
+  onLogout():void{
+    deleteCookie('id')
+    deleteCookie('username')
+    this.router.navigate(['']);
   }
 
   createJobPost(data:any){

@@ -14,6 +14,38 @@
 .home-header{
     text-align: center;
     background-color: rgb(49,120,198);
+    position: relative;
+}
+
+.greet-user{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid white; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.greet-user p{
+    font-size: 19px;
+    color: white;
+}
+
+.greet-user button{
+    background-color: rgb(223, 59, 59);
+    border: none;
+    width: 80px;
+    height: 25px;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: ease-in-out all 0.3s;
+}
+
+.greet-user button:hover{
+    background-color: rgb(230, 112, 112);
 }
 
 .home-header img{

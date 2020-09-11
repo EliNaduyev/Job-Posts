@@ -12,7 +12,7 @@ import { MainService } from '../../services/main.service'
 export class LoginComponent implements OnInit {
   userName:string
   password:string
-  
+  error:string = ''
   constructor(private router:Router, private mainServices:MainService) { }
 
   ngOnInit(): void {
@@ -20,8 +20,16 @@ export class LoginComponent implements OnInit {
 
   onLogin(){
     this.mainServices.getUser({username: this.userName,pass: this.password}).subscribe(response => {
+      const { err } = response
 
-      if(response.err){console.log(response.err)}
+
+      if(err){
+        console.log(err)
+        this.error = err
+        setTimeout( ()=>{
+          this.error = ''
+        },6000)
+      }
       else{
         if(response.data){
   
