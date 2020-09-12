@@ -12,9 +12,12 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   jobPostArr:object[]
   username:string
+  auth:boolean = false
+
   constructor(private mainServices:MainService, private router:Router) { }
 
   ngOnInit(): void {
+    this.auth = this.mainServices.auth('id')
     this.username = getCookie('username')
     this.mainServices.getJobPosts().subscribe(response =>{
 
@@ -23,6 +26,7 @@ export class HomeComponent implements OnInit {
 
     })
   }
+
 
   onLogout():void{
     deleteCookie('id')

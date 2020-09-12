@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { ErrorMsgComponent } from './components/error-msg/error-msg.component'
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
+import { LoginAlertComponent } from './components/login-alert/login-alert.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ErrorMsgComponent } from './components/error-msg/error-msg.component'
     FooterComponent,
     RegisterComponent,
     LoginComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    LoginAlertComponent
   ],
   imports: [
     BrowserModule,

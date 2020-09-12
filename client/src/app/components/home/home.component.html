@@ -5,12 +5,12 @@
     <div class="home-container">
         <div class="home-header">
             <img src="../../assets/top-header.png" alt="">
-            <div class="greet-user">
+            <div *ngIf='auth' class="greet-user">
                 <p>Hello, {{username}}!</p>
                 <button (click)="onLogout()">Logout</button>
             </div>
         </div>
-
+        <!-- *ngIf="!handleLoginAlert()"  -->
 
         <!-- <div class="home-top-flex">
             <div class="home-top-flex-info">

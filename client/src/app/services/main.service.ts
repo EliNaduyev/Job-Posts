@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { getCookie } from '../cookies'
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,16 @@ export class MainService {
   END_POINT:string = 'http://localhost:3000'
 
   constructor(private http:HttpClient) { }
+
+  auth(cookieName:string):boolean{
+    let userCookie = getCookie(cookieName)
+    if(userCookie){
+      return true
+    }
+    else{
+      return false
+    }
+  }
 
   // ----------- users function -----------
   addNewUser(newUser:object):Observable<any>{

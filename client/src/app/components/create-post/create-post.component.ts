@@ -1,6 +1,7 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { TimeObject } from '../../models/timeObject'
 import { stringify } from '@angular/compiler/src/util';
+import { MainService } from '../../services/main.service'
 
 
 
@@ -18,15 +19,24 @@ export class CreatePostComponent implements OnInit {
   phone:string
   email:string
   education:string = 'Education'
-
-  // timeObj: Partial <TimeObject> = {};
   pubDate:string
 
-  constructor() { }
+
+
+  constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
+    const loginAlert = document.querySelector('.alert-container') as HTMLElement;
 
-    // console.log(this.pubDate)
+    window.onclick = function(event) {
+      if (event.target == loginAlert) {
+        loginAlert.style.display = "none"
+        console.log('clicked on window')
+      }
+      else{
+        console.log('cant find login alert')
+      }
+    }
 
 
   }
@@ -43,31 +53,45 @@ export class CreatePostComponent implements OnInit {
 
     onCreate(){
     // if(this.title && this.body && this.phone && this.email && this.education !== 'Education')
-    this.pubDate = this.makeDate()
-    console.log(typeof this.phone)
-    if(this.phone){
-      if(this.phone.toString().length >= 9 && this.phone.toString().length <= 10){
-        if(this.title && this.body && this.education !== 'Education' && this.email){
-          this.createJobPost.emit({
-            title:this.title,
-            body:this.body,
-            tel:this.phone,
-            email:this.email,
-            education:this.education,
-            pubDate:this.pubDate
-          })
+     
+
+
+    if(this.mainServices.auth('id')){
+      this.pubDate = this.makeDate()
+      console.log(typeof this.phone)
+      if(this.phone){
+        if(this.phone.toString().length >= 9 && this.phone.toString().length <= 10){
+          if(this.title && this.body && this.education !== 'Education' && this.email){
+            this.createJobPost.emit({
+              title:this.title,
+              body:this.body,
+              tel:this.phone,
+              email:this.email,
+              education:this.education,
+              pubDate:this.pubDate
+            })
+          }
+          else{
+            alert('Fill all the fields')
+          }
         }
         else{
-          alert('Fill all the fields')
+          alert('Phone must contain 9 or 10 digits')
         }
       }
       else{
-        alert('Phone must contain 9 or 10 digits')
+        alert('Fill phone field')
       }
     }
     else{
-      alert('Fill phone field')
+      const loginAlert = document.querySelector('.alert-container') as HTMLElement;
+
+      loginAlert.style.display = "flex";
     }
 
-  }
+    
+      
+    }
+
+
 }

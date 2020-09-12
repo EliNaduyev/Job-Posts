@@ -1,0 +1,69 @@
+
+.alert-container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.alert-center{
+    width: 300px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.4), 0 6px 20px 0 rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+}
+
+.alert-center h1{
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(66, 66, 66);
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.btns button{
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out all 0.3s;
+    background-color: rgb(66, 186, 233);
+}
+
+.btns button:hover{background-color: rgb(107, 197, 233);}
+
+.close-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px 5px 5px;
+}
+
+.close-icon i{
+   color: rgb(224, 75, 75); 
+   cursor: pointer;
+   font-size:20px;
+   transition: all ease-in-out 0.3s;
+}
+
+.close-icon i:hover{
+    color: rgb(224, 75, 75); 
+    transform: rotate(60deg);
+ }
