@@ -6,7 +6,10 @@
         <div class="logo">
             <img src="../../assets/top-header.png" alt="">
         </div>
-        <h1>Hello New User</h1>
+        <div class="sign-in-out">
+            <h2 class="avtive">Sign Up</h2>
+            <h1 class="not-active">Sign In</h1>
+        </div>
         <div class="inputs-container">
             <app-error-msg *ngIf="error"[errorText]=error></app-error-msg>
             <input class="input" type="text" placeholder="Username"
@@ -18,7 +21,7 @@
             <input class="input" type="email" placeholder="Email"
             [(ngModel)]="email">
             <button (click)="onSignUp()" class="input btn">Sign Up</button>
-            <p>Have an account?  <a routerLink="">Sign In</a></p>
+            <p>Have an account?  <a routerLink="/login">Sign In</a></p>
         </div>
     </div>
 </div>

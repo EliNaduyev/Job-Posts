@@ -116,7 +116,7 @@ app.post('/getuser', (req, res) =>{
 app.get('/allposts', (req, res) =>{
     console.log('all posts request was made')
 
-    const sql = 'SELECT * from notes';
+    const sql = 'SELECT * from posts ORDER BY id DESC';
     db.query(sql, (err, result) =>{
         if(err){
             console.log(err)
@@ -125,26 +125,79 @@ app.get('/allposts', (req, res) =>{
             res.json(result)
         }
     })
-    
 })
 
 app.post('/addpost', (req, res) =>{
     console.log('add post request was made')
     console.log(req.body)
-    const {title, education, desc, email, tel, date} = req.body
-    console.log('type of: ',typeof tel)
-
-    const sql = 'INSERT INTO notes (title, education) values (?,?,?,?,?,?);'
-
-    db.query(sql, [title, education, desc, email, tel, date],(err, result) =>{
+    const {title, education, desc, email, tel, date, username} = req.body
+    let numOfPost;
+    const sql2 = 'SELECT num_of_posts FROM users WHERE user_name =?'
+    
+    db.query(sql2, [username],(err, result) =>{
         if(err){
             console.log(err)
-
-            res.json({msg:err})
+            return res.json({status:false, msg:err})
         }
         else{            
-            console.log('result: ',result)
-            res.json({msg:result})
+            console.log('num of posts: ',result[0].num_of_posts)
+            numOfPost = result[0].num_of_posts
+            if(numOfPost < 3){
+                const sql = 'INSERT INTO posts (title, education, note_description, email, tel, pub_date, user_name) values (?,?,?,?,?,?,?);'
+                db.query(sql, [title, education, desc, email, tel, date, username],(err, result) =>{
+                    if(err){
+                        console.log(err)
+                        return res.json({status:false, msg:err})
+                    }
+                    else{            
+                        numOfPost = numOfPost + 1
+                        const sql3 = 'UPDATE users SET num_of_posts =? WHERE user_name =?'
+                        db.query(sql3,[numOfPost, username], (err, result) =>{
+                            if(err){console.log(err)}
+                            else{console.log(result)}
+                        })
+                        return res.json({status:true, msg:'Post Added!'})
+                    }
+                })
+            }
+            else{
+                return res.json({status:false, msg:'Sorry but you reach the limit(3) of posts creation'})
+            }
+        }
+    })
+})
+
+
+app.post('/deletepost', (req, res) =>{
+    console.log('delete post request was made')
+    console.log('post delete body: ',req.body)
+    const {id, username} = req.body
+    const sql = 'DELETE FROM posts WHERE id =? AND user_name =?';    
+    db.query(sql,[id, username], (err, result) =>{
+        if(err){
+            console.log('not succsed: ',err)
+        }
+        else{
+            console.log('yes: ',result)
+            const { affectedRows } = result
+            console.log('affectedRows: ',affectedRows)
+
+            if(affectedRows === 0){
+                console.log('affectedRows2: ',affectedRows)
+
+                return res.json({status:false})
+            }
+            else{
+
+               const sql2 = 'UPDATE users SET num_of_posts = num_of_posts - 1 WHERE user_name =? '
+               db.query(sql2,[username], (err, result) =>{
+                   if(err){console.log(err)}
+                   else{console.log(result)}
+                })
+
+                return res.json({status:true})
+            }
+            // res.json(result)
         }
     })
 })

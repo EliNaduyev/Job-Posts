@@ -2,7 +2,7 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { TimeObject } from '../../models/timeObject'
 import { stringify } from '@angular/compiler/src/util';
 import { MainService } from '../../services/main.service'
-
+import { getCookie } from '../../cookies'
 
 
 @Component({
@@ -21,24 +21,13 @@ export class CreatePostComponent implements OnInit {
   education:string = 'Education'
   pubDate:string
 
-
-
   constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
     const loginAlert = document.querySelector('.alert-container') as HTMLElement;
-
     window.onclick = function(event) {
-      if (event.target == loginAlert) {
-        loginAlert.style.display = "none"
-        console.log('clicked on window')
-      }
-      else{
-        console.log('cant find login alert')
-      }
+      if (event.target == loginAlert) loginAlert.style.display = "none"
     }
-
-
   }
 
     makeDate() {
@@ -48,14 +37,10 @@ export class CreatePostComponent implements OnInit {
 
     onChange(){
       let remainingChars = document.querySelector('#remaining-char')
-      remainingChars.innerHTML =' '+ (100 -this.body.length)
+      remainingChars.innerHTML =' '+ (150 -this.body.length)
     }
 
     onCreate(){
-    // if(this.title && this.body && this.phone && this.email && this.education !== 'Education')
-     
-
-
     if(this.mainServices.auth('id')){
       this.pubDate = this.makeDate()
       console.log(typeof this.phone)
@@ -68,30 +53,20 @@ export class CreatePostComponent implements OnInit {
               tel:this.phone,
               email:this.email,
               education:this.education,
-              pubDate:this.pubDate
+              pubDate:this.pubDate,
+              username: getCookie('username')
             })
+            
           }
-          else{
-            alert('Fill all the fields')
-          }
+          else{alert('Fill all the fields')}
         }
-        else{
-          alert('Phone must contain 9 or 10 digits')
-        }
+        else{alert('Phone must contain 9 or 10 digits')}
       }
-      else{
-        alert('Fill phone field')
-      }
+      else{alert('Fill phone field')}
     }
     else{
       const loginAlert = document.querySelector('.alert-container') as HTMLElement;
-
       loginAlert.style.display = "flex";
     }
-
-    
-      
     }
-
-
 }

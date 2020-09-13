@@ -13,25 +13,24 @@ export class HomeComponent implements OnInit {
   jobPostArr:object[]
   username:string
   auth:boolean = false
-
+  status:boolean
+  alertText:string
   constructor(private mainServices:MainService, private router:Router) { }
 
   ngOnInit(): void {
+    console.log('home component rendered!')
     this.auth = this.mainServices.auth('id')
     this.username = getCookie('username')
     this.mainServices.getJobPosts().subscribe(response =>{
-
       console.log('response: ',response)
       this.jobPostArr = response
-
     })
   }
-
 
   onLogout():void{
     deleteCookie('id')
     deleteCookie('username')
-    this.router.navigate(['']);
+    document.location.reload();
   }
 
   createJobPost(data:any){
@@ -41,24 +40,34 @@ export class HomeComponent implements OnInit {
       tel:data.tel,
       email:data.email,
       education:data.education,
-      date:data.pubDate
-    }).subscribe(response =>{     //without subscribe the request will not work!
+      date:data.pubDate,
+      username:data.username
+    }).subscribe(response =>{  //without subscribe the request will not work!
+
       console.log('response: ',response)
+      if(response.status){
+        this.mainServices.getJobPosts().subscribe(response =>{
+          console.log('array of posts refreshed')
+          this.jobPostArr = response
+        })
+        // alert(response.msg)
+
+      }
+      else{alert(response.msg)}
     })
   }
 
-  contactJobPost(data:object){
+  deletePost(data:object){
     console.log(data)
-  }
-
-  makeHTTP(){
-    console.log('btn was clicked')
-    // if i dont use subscribe the request will not be sent
-    this.mainServices.makeSimpleHttp().subscribe(test =>{  
-      console.log('test: ',test)
+    this.mainServices.deletePost(data).subscribe(response =>{
+      console.log('after deleteing: ',response)
+      if(response.status){
+        alert("Post deleted!")
+        this.mainServices.getJobPosts().subscribe(response =>{
+          console.log('array of posts refreshed')
+          this.jobPostArr = response
+        })
+      }else alert("You can't delete others users posts!")
     })
   }
-
-
-
 }

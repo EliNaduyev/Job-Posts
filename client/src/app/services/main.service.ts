@@ -44,17 +44,12 @@ export class MainService {
   }
 
   addPost(obj:object):Observable<any>{
-    // this.arr.unshift(obj)
     console.log('add post btn was clicked')
-    console.log(obj)
     return this.http.post<any>(this.END_POINT+'/addpost', obj)
   }
 
-  makeSimpleHttp():Observable<any>{
-    console.log('making HTTP in services')
-    return this.http.get<any>(this.END_POINT+'/users')
-
-    // return this.http.post<any>(this.END_POINT+'/post',{data:'data from angular'})
-
+  deletePost(userData:object):Observable<any>{
+    console.log('making delete post services: ',userData)
+    return this.http.post<any>(this.END_POINT+'/deletepost',userData)
   }
 }

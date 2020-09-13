@@ -13,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
-import { LoginAlertComponent } from './components/login-alert/login-alert.component'
+import { LoginAlertComponent } from './components/login-alert/login-alert.component';
+import { FastAlertComponent } from './components/fast-alert/fast-alert.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginAlertComponent } from './components/login-alert/login-alert.compon
     RegisterComponent,
     LoginComponent,
     ErrorMsgComponent,
-    LoginAlertComponent
+    LoginAlertComponent,
+    FastAlertComponent
   ],
   imports: [
     BrowserModule,

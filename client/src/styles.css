@@ -38,3 +38,13 @@ input[type=number] {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: rgb(75, 74, 74);
 }
+
+.sign-in-out{margin-top: 30px;}
+
+.sign-in-out h2{font-size: 26px;}
+
+.sign-in-out h1{font-size: 32px;}
+
+.avtive{color:rgb(30, 113, 200);}
+
+.not-active{color:rgb(136, 137, 138,0.3);}

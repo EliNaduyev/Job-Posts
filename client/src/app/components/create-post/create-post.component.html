@@ -1,20 +1,16 @@
 
 
 <div class="post-creation">
-    <h1>
-        Job Post Creation
-
-    </h1>
+    <h1>Job Post Creation</h1>
     <app-login-alert></app-login-alert>
-
-    <input type="text" placeholder="Insert title..."
+    <input type="text" placeholder="Title"
     [(ngModel)]="title" name="title" class="inputs">
     <div>
-        <input type="number" placeholder="Insert phone nubmer..." class="inputs"
+        <input type="number" placeholder="Nubmer" class="inputs"
         [(ngModel)]="phone">
     </div>
     <div>
-        <input type="email" placeholder="Insert email..." class="inputs"
+        <input type="email" placeholder="Email" class="inputs"
         [(ngModel)]="email">
     </div>
     <div class="dropdown-input">
@@ -28,12 +24,12 @@
     </div>
     <div>
         <textarea id="text-area" cols="30" rows="10"
-        placeholder="Tell about your self..." maxlength="100"
+        placeholder="Tell about your self..." maxlength="150"
         [(ngModel)]="body" (input)="onChange()">
         </textarea>
         <div class="char-left-to-max">
             <span>characters remaining: </span>
-            <span id='remaining-char'>100</span>
+            <span id='remaining-char'>150</span>
         </div>
 
     </div>

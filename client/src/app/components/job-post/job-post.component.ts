@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { getCookie } from '../../cookies'
+import { MainService } from '../../services/main.service'
 
 @Component({
   selector: 'app-job-post',
@@ -8,19 +10,32 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 export class JobPostComponent implements OnInit {
   @Input() jobPost: any
-  @Output() contactJobPost: EventEmitter <any> = new EventEmitter();
+  @Output() deletePost: EventEmitter <any> = new EventEmitter();
+  username:string
 
-
-  constructor() { }
+  constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
     // console.log('post: ',this.jobPost.title)
     // console.log(typeof this.jobPost)
   }
 
-  // onContact(){
-  //   this.contactJobPost.emit({id:this.jobPost.id, second:'second argument'})
-  // }
+
+
+  onDelete(){
+    console.log('from job post component: ',this.jobPost)
+    this.username = getCookie('username')
+    if(this.username){
+      console.log('this.jobPost.id: ',this.jobPost)
+
+      this.deletePost.emit({id:this.jobPost.id, username:this.username })
+
+    }
+    else{
+      alert('Please Login')
+    }
+
+  }
 
   
 

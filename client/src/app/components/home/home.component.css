@@ -179,6 +179,42 @@
     justify-content: center;
 }
 
+.login-register-div{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px;
+}
+
+.login-register-div a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+.login-register-div a:hover{
+    transform: scale(1.15);
+}
+
+.vertical-line{
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 17px;
+    width: 2px;
+    margin: 0px 10px;
+}
+
+.login-link{
+    padding: 2px;
+    background-color: white;
+    border-radius: 20px;
+    color: rgb(9, 155, 212) !important;
+    width: 70px;
+}
+
 @media only screen and (min-width: 1500px) {
 
     .home-grid-text{

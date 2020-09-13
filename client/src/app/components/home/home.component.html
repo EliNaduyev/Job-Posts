@@ -3,38 +3,24 @@
 <div class="home" >
 
     <div class="home-container">
+        <app-fast-alert [status]="status" [text]="alertText"></app-fast-alert>
         <div class="home-header">
             <img src="../../assets/top-header.png" alt="">
             <div *ngIf='auth' class="greet-user">
                 <p>Hello, {{username}}!</p>
                 <button (click)="onLogout()">Logout</button>
             </div>
+            <div *ngIf='!auth' class="login-register-div">
+                <a class="login-link" routerLink="/login">Login</a>
+                <div class="vertical-line"></div>
+                <a routerLink="/register">Register</a>
+            </div>
         </div>
-        <!-- *ngIf="!handleLoginAlert()"  -->
 
-        <!-- <div class="home-top-flex">
-            <div class="home-top-flex-info">
-                <h1>Create Your Own Posts!</h1>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur 
-                    adipisicing elit. Earum sunt adipisci dolore 
-                    repudiandae, ab eos tenetur fuga cum, vel soluta
-                     velit enim eaque nisi totam, nihil rem voluptas
-                      animi officiis.
-                </p>
-
-                <button class="register-btn">Register</button>
-         
-            </div>
-            <div class="home-top-flex-img">
-                <img src="../../assets/a.jpg" alt="">
-            </div>
-        </div> -->
-        <!-- <button (click)="makeHTTP()">HTTP</button> -->
         <div class="home-grid home-top">
             <div class="home-grid-text">
                 <h1 class="home-grid-text-header">
-                    <span>Job seekers board</span> 
+                    <span>Job Seekers Board</span> 
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </h1>
                 <p>
@@ -49,9 +35,8 @@
                         <i class="fa fa-arrow-down" aria-hidden="true"></i>
                     </button>
                 </a>
-          
-         
             </div>
+
             <div class="home-grid-img">
                 <img src="../../assets/b.png" alt="">
             </div>
@@ -59,7 +44,6 @@
         <div class="home-grid home-bottom">
             <div class="home-grid-posts">
                 <app-create-post (createJobPost)="createJobPost($event)"></app-create-post>
-
             </div>
             <div class="home-grid-text">
                 <h1 class="home-grid-text-header">
@@ -73,15 +57,9 @@
                     in order for recruiters or people who have job offers to be able to contact them.
                     <b>If you came here and you are looking for a job leave a note do not be shy!</b>
                     <i class="fa fa-smile-o" aria-hidden="true"></i>
-
                 </p>
-    
-         
             </div>
-        
-
         </div>
-        <!-- [ngStyle]="{backgroundImage:'url(../../assets/posts-bg.jpg)'}" -->
         <div class="job-post-container" 
         [ngStyle]="{backgroundImage:'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../../assets/posts-bg.jpg)'}"
         >
@@ -92,11 +70,9 @@
       
             <div class="job-post-container-flex">
                 <app-job-post *ngFor="let post of jobPostArr" [jobPost]="post"
-                (contactJobPost)="contactJobPost($event)">
-
+                (deletePost)="deletePost($event)">
                 </app-job-post>
             </div>
-          
         </div>
         <app-footer></app-footer>
     </div>
