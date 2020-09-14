@@ -1,6 +1,4 @@
 
-
-
 .container{
     height: 100vh;
     background-color: rgb(246, 246, 246);
@@ -18,14 +16,6 @@
     justify-content: center;
     flex-direction: column;  
 }
-
-.center-container h1{
-    /* margin-top: 25px; */
-    /* font-size: 30px; */
-    /* color: rgb(85, 79, 79); */
-}
-
-
 
 .logo{
     background-color: rgb(49,120,198);

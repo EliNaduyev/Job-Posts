@@ -15,16 +15,25 @@ export class HomeComponent implements OnInit {
   auth:boolean = false
   status:boolean
   alertText:string
+
   constructor(private mainServices:MainService, private router:Router) { }
 
   ngOnInit(): void {
-    console.log('home component rendered!')
     this.auth = this.mainServices.auth('id')
     this.username = getCookie('username')
     this.mainServices.getJobPosts().subscribe(response =>{
-      console.log('response: ',response)
       this.jobPostArr = response
     })
+  }
+
+  makeAlert(text:string, status:boolean, time:number){
+    let alert = document.querySelector('.alert-container') as HTMLElement
+    alert.classList.add("alert-container-show")
+    this.status = status
+    this.alertText = text
+    setTimeout( ()=>{
+      alert.classList.remove('alert-container-show')
+    },time)
   }
 
   onLogout():void{
@@ -44,30 +53,26 @@ export class HomeComponent implements OnInit {
       username:data.username
     }).subscribe(response =>{  //without subscribe the request will not work!
 
-      console.log('response: ',response)
       if(response.status){
         this.mainServices.getJobPosts().subscribe(response =>{
-          console.log('array of posts refreshed')
           this.jobPostArr = response
+          this.makeAlert('Post Added!', true, 3000)
         })
-        // alert(response.msg)
-
-      }
-      else{alert(response.msg)}
+      } else{this.makeAlert(response.msg, false, 6000)}
     })
   }
 
   deletePost(data:object){
-    console.log(data)
     this.mainServices.deletePost(data).subscribe(response =>{
-      console.log('after deleteing: ',response)
-      if(response.status){
-        alert("Post deleted!")
-        this.mainServices.getJobPosts().subscribe(response =>{
-          console.log('array of posts refreshed')
-          this.jobPostArr = response
-        })
-      }else alert("You can't delete others users posts!")
+      if(response.err){alert(response.err)}
+      else{
+        if(response.status){
+          this.makeAlert("Post Deleted!", true, 3000)
+          this.mainServices.getJobPosts().subscribe(response =>{
+            this.jobPostArr = response
+          })
+        } else this.makeAlert("You can't delete others users posts!", false, 5000)
+      }
     })
   }
 }

@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.mainServices.getUser({username: this.userName,pass: this.password}).subscribe(response => {
       const { err } = response
-
-
       if(err){
         console.log(err)
         this.error = err

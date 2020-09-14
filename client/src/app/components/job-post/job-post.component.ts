@@ -26,10 +26,7 @@ export class JobPostComponent implements OnInit {
     console.log('from job post component: ',this.jobPost)
     this.username = getCookie('username')
     if(this.username){
-      console.log('this.jobPost.id: ',this.jobPost)
-
       this.deletePost.emit({id:this.jobPost.id, username:this.username })
-
     }
     else{
       alert('Please Login')

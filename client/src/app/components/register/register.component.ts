@@ -21,19 +21,15 @@ export class RegisterComponent implements OnInit {
   constructor(private router:Router, private mainServices:MainService) { }
 
   ngOnInit(): void {
-    // const myId = uuid.v4();
-    // console.log( typeof myId)
+
   }
 
   onSignUp(){
       if(this.password && this.confirmPassword && this.userName && this.email){
-          if(this.password == this.confirmPassword){
-            console.log('this.userName: ',this.userName)
+        if(this.password == this.confirmPassword){
     
           this.mainServices.checkUser(this.userName).subscribe(respones =>{
-            console.log('responesss: ',respones)
             this.usernameAvailable = respones.msg
-            console.log('this.usernameAvailable: ',this.usernameAvailable)
             if(this.usernameAvailable){
               this.error = 'This username is not available'
               setTimeout( ()=>{
@@ -47,27 +43,22 @@ export class RegisterComponent implements OnInit {
                 password: this.password,
                 email: this.email
               }
-              console.log(newUser)
               this.mainServices.addNewUser(newUser).subscribe(response =>{
               const { err } = response
               if(err){
-                console.log(err)
                 this.error = err
                 setTimeout( ()=>{
                   this.error = ''
                 },6000)
               }
               else{
-                console.log('response: ',response)
-                console.log('type of response: ',typeof response)
-                alert('user successfully added')
+                alert('User successfully added')
+                this.router.navigate(['/login']);
               }
             })
-              // this.router.navigate(['']);
-            }
-          })
-    
-        }
+          }
+        })
+      }
         else{
           this.error = 'Passwords are not match'
           setTimeout( ()=>{

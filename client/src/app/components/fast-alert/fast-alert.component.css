@@ -11,12 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.2;
+    opacity: 0;
     transition: ease-in-out all 0.3s; 
     transform: translateY(-80px);
+    padding: 0px 15px;
 }   
-
-
 
 .alert-container-show{
     opacity: 1;
@@ -24,17 +23,13 @@
 } 
 
 .alert-red-bg{
-    background-color: rgb(226, 179, 181);
+    background-color: rgb(243, 226, 227);
     border: 1px solid rgb(216, 81, 88);
-    color: rgb(216, 53, 61);
+    color: rgb(230, 13, 23);
 }
 
 .alert-green-bg{
     background-color: rgb(212,237,218);
     border: 1px solid rgb(23, 129, 23);
     color: rgb(65,122,78);
-}
-
-.text{
-
 }

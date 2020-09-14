@@ -20,7 +20,6 @@
 .greet-user{
     display: flex;
     align-items: center;
-    /* border: 1px solid white; */
     position: absolute;
     left: 0;
     top: 0;

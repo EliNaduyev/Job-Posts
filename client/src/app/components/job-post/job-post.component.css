@@ -13,17 +13,11 @@
     position: relative;
 }
 
-
-
-.container{
-    /* border: 1px solid black; */
-    padding: 0px 0px 0px 15px;
-}
+.container{padding: 0px 0px 0px 15px;}
 
 .job-box-header{
     text-align: center;
     margin-bottom: 15px;
-    /* padding: 0px 10px; */
 }
 
 .container h4{
@@ -36,14 +30,10 @@
     line-height: 25px;
     overflow: hidden;
     padding-right: 7px;
-
-    /* border: 1px solid black; */
-    /* padding: 0px 10px; */
 }
 
 .nail-icon i{
     font-size:20px;
-    /* border: 1px solid black; */
     color: rgb(221, 36, 36);
     transform: rotate(40deg);
     margin-bottom: 5px;
@@ -58,7 +48,6 @@
 .btn-container{
     margin-top: 20px;
     text-align: center;
-    
 }
 
 .contact-btn{
@@ -71,20 +60,13 @@
 }
 
 .contact-btn:hover{
-    /* background-color: rgb(255, 255, 255); */
     border: 1px solid rgb(20, 142, 212);
     color: rgb(20, 142, 212);
-
 }
 
-.phone-num{
-    padding:6px 0px;
-    /* border: 2px solid rgb(42, 149, 211); */
-
-}
+.phone-num{padding:6px 0px;}
 
 .pub-date{
-    /* border: 1px solid black; */
     padding: 5px;
     position: absolute;
     left: 0;
@@ -111,8 +93,6 @@
 
 @media only screen and (max-width: 455px) {
 
-    .job-box{
-        margin-right: 0;
-    }
+    .job-box{margin-right: 0;}
 }
 

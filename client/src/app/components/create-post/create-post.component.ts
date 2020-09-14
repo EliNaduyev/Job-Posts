@@ -1,6 +1,4 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
-import { TimeObject } from '../../models/timeObject'
-import { stringify } from '@angular/compiler/src/util';
 import { MainService } from '../../services/main.service'
 import { getCookie } from '../../cookies'
 
@@ -24,10 +22,6 @@ export class CreatePostComponent implements OnInit {
   constructor(private mainServices:MainService) { }
 
   ngOnInit(): void {
-    const loginAlert = document.querySelector('.alert-container') as HTMLElement;
-    window.onclick = function(event) {
-      if (event.target == loginAlert) loginAlert.style.display = "none"
-    }
   }
 
     makeDate() {
@@ -40,23 +34,24 @@ export class CreatePostComponent implements OnInit {
       remainingChars.innerHTML =' '+ (150 -this.body.length)
     }
 
-    onCreate(){
+  onCreate(){
     if(this.mainServices.auth('id')){
       this.pubDate = this.makeDate()
-      console.log(typeof this.phone)
       if(this.phone){
         if(this.phone.toString().length >= 9 && this.phone.toString().length <= 10){
           if(this.title && this.body && this.education !== 'Education' && this.email){
-            this.createJobPost.emit({
-              title:this.title,
-              body:this.body,
-              tel:this.phone,
-              email:this.email,
-              education:this.education,
-              pubDate:this.pubDate,
-              username: getCookie('username')
-            })
-            
+            if(this.email.includes('@')){
+              this.createJobPost.emit({
+                title:this.title,
+                body:this.body,
+                tel:this.phone,
+                email:this.email,
+                education:this.education,
+                pubDate:this.pubDate,
+                username: getCookie('username')
+              })
+            }
+            else alert('Invalid email')
           }
           else{alert('Fill all the fields')}
         }
@@ -65,8 +60,8 @@ export class CreatePostComponent implements OnInit {
       else{alert('Fill phone field')}
     }
     else{
-      const loginAlert = document.querySelector('.alert-container') as HTMLElement;
+      const loginAlert = document.querySelector('.login-alert-container') as HTMLElement;
       loginAlert.style.display = "flex";
     }
-    }
+  }
 }

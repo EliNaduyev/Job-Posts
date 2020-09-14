@@ -1,15 +1,14 @@
 
-<!-- [ngStyle]="{backgroundImage:'url(../../assets/background.jpg)'}" -->
 <div class="home" >
 
     <div class="home-container">
-        <app-fast-alert [status]="status" [text]="alertText"></app-fast-alert>
         <div class="home-header">
             <img src="../../assets/top-header.png" alt="">
             <div *ngIf='auth' class="greet-user">
                 <p>Hello, {{username}}!</p>
                 <button (click)="onLogout()">Logout</button>
             </div>
+            <app-fast-alert [status]="status" [text]="alertText"></app-fast-alert>
             <div *ngIf='!auth' class="login-register-div">
                 <a class="login-link" routerLink="/login">Login</a>
                 <div class="vertical-line"></div>
@@ -76,6 +75,4 @@
         </div>
         <app-footer></app-footer>
     </div>
-    
-
 </div>

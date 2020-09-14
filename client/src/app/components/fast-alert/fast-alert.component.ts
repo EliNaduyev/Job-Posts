@@ -15,13 +15,12 @@ export class FastAlertComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // setClasses(){
-  //   let classes = {
-  //     'alert-container':true,
-  //     'alert-green-bg':this.status,
-  //     'alert-red-bg':!this.status
-  //   }
-  //   return classes
-  // }
-
+  myStyle(){
+    let desgin = {
+      'alert-container':true,
+      'alert-green-bg':this.status,
+      'alert-red-bg':!this.status
+    }
+    return desgin
+  }
 }
