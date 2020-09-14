@@ -16,4 +16,8 @@
     color: black;
     margin: 0 10px;
     font-size: 18px;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
 }
+
+.footer a:hover{transform: scale(1.2);}

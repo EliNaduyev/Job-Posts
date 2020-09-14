@@ -26,38 +26,39 @@ export class RegisterComponent implements OnInit {
 
   onSignUp(){
       if(this.password && this.confirmPassword && this.userName && this.email){
-        if(this.password == this.confirmPassword){
-    
-          this.mainServices.checkUser(this.userName).subscribe(respones =>{
-            this.usernameAvailable = respones.msg
-            if(this.usernameAvailable){
-              this.error = 'This username is not available'
-              setTimeout( ()=>{
-                this.error = ''
-              },6000)
-            }
-            else{
-              let newUser:NewUser = {
-                id:uuid.v4(),  
-                userName: this.userName,
-                password: this.password,
-                email: this.email
-              }
-              this.mainServices.addNewUser(newUser).subscribe(response =>{
-              const { err } = response
-              if(err){
-                this.error = err
+        if(this.password === this.confirmPassword){
+          if(this.email.includes('@')){
+            this.mainServices.checkUser(this.userName).subscribe(respones =>{
+              this.usernameAvailable = respones.msg
+              if(this.usernameAvailable){
+                this.error = 'This username is not available'
                 setTimeout( ()=>{
                   this.error = ''
                 },6000)
               }
               else{
-                alert('User successfully added')
-                this.router.navigate(['/login']);
-              }
-            })
-          }
-        })
+                let newUser:NewUser = {
+                  id:uuid.v4(),  
+                  userName: this.userName,
+                  password: this.password,
+                  email: this.email
+                }
+                this.mainServices.addNewUser(newUser).subscribe(response =>{
+                const { err } = response
+                if(err){
+                  this.error = err
+                  setTimeout( ()=>{
+                    this.error = ''
+                  },6000)
+                }
+                else{
+                  alert('User successfully added')
+                  this.router.navigate(['/login']);
+                }
+              })
+            }
+          })
+          }else{alert('Invalid email')}
       }
         else{
           this.error = 'Passwords are not match'

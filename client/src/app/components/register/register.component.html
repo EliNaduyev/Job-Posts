@@ -19,7 +19,7 @@
             <input class="input" type="password" placeholder="Confirm password"
             [(ngModel)]="confirmPassword">
             <input class="input" type="email" placeholder="Email"
-            [(ngModel)]="email">
+            [(ngModel)]="email" (keyup.enter)="onSignUp()">
             <button (click)="onSignUp()" class="input btn">Sign Up</button>
             <p>Have an account?  <a routerLink="/login">Sign In</a></p>
         </div>

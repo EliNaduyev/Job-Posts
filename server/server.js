@@ -133,8 +133,7 @@ app.post('/addpost', (req, res) =>{
 
 
 app.post('/deletepost', (req, res) =>{
-    console.log('delete post request was made')
-    console.log('post delete body: ',req.body)
+
     const {id, username} = req.body
     const sql = 'DELETE FROM posts WHERE id =? AND user_name =?';    
     db.query(sql,[id, username], (err, result) =>{
@@ -157,7 +156,6 @@ app.post('/deletepost', (req, res) =>{
 })
 
 const PORT = 3000
-app.listen(PORT, () =>{
+app.listen(PORT || process.env.PORT, () =>{
     console.log('server is running on PORT: ',PORT)
-
 })

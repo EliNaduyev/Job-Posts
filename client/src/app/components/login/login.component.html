@@ -14,7 +14,7 @@
             <input class="input" type="text" placeholder="Username"
             [(ngModel)]="userName">
             <input class="input" type="password" placeholder="Password"
-            [(ngModel)]="password">
+            [(ngModel)]="password" (keyup.enter)="onLogin()">
             <button (click)="onLogin()" class="input btn">Sign In</button>
             <p>Dont have an account? <a routerLink="/register">Sign Up</a></p>
 
