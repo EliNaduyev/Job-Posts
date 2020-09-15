@@ -7,6 +7,7 @@ Full stack web application that simulates a bulletin board for people who lookin
 <img src="screenshots/job-posts .png"/>
 
 
+
 ### Technologies
 * Angular on the Frontend
 * NodeJS & Express on the Backend
