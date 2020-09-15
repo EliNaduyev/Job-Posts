@@ -9,7 +9,7 @@ import { LoginAlertComponent } from './components/login-alert/login-alert.compon
 
 
 const routes: Routes = [  
-  {path:'alert', component: LoginAlertComponent},
+  { path:'alert', component: LoginAlertComponent},
   { path:'login', component: LoginComponent },
   { path:'register', component: RegisterComponent },
   { path:'', component: HomeComponent },

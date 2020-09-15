@@ -33,7 +33,9 @@ setInterval(function () {
 
 // --------- general management ---------
 
-
+app.get('/', (req, res) =>{
+    res.send('server is running...')
+})
 
 // --------- users management ---------
 
@@ -155,7 +157,7 @@ app.post('/deletepost', (req, res) =>{
     })
 })
 
-const PORT = 3000
-app.listen(PORT || process.env.PORT, () =>{
-    console.log('server is running on PORT: ',PORT)
+
+app.listen( process.env.PORT ||  5000 , () =>{
+    console.log('server is running on PORT: ', 5000)
 })

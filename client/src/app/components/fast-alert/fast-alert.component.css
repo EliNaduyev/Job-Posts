@@ -20,16 +20,21 @@
 .alert-container-show{
     opacity: 1;
     transform: translateY(0);
+
 } 
 
 .alert-red-bg{
     background-color: rgb(243, 226, 227);
     border: 1px solid rgb(216, 81, 88);
     color: rgb(230, 13, 23);
+    left: 50%;
+    transform: translate(-50%,0);
 }
 
 .alert-green-bg{
     background-color: rgb(212,237,218);
     border: 1px solid rgb(23, 129, 23);
     color: rgb(65,122,78);
+    left: 50%;
+    transform: translate(-50%,0);
 }

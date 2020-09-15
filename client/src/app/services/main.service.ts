@@ -9,7 +9,7 @@ import { getCookie } from '../cookies'
 
 export class MainService {
   arr:object[]
-  END_POINT:string = 'http://localhost:3000'
+  END_POINT:string = 'https://job-notes.herokuapp.com'
 
   constructor(private http:HttpClient) { }
 
