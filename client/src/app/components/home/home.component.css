@@ -280,7 +280,9 @@
     .job-post-container{
         height: auto;
         padding: 15px;
+        background-attachment: scroll;
     }
+
 
     .home-grid-posts{
         margin-top: 20px;
